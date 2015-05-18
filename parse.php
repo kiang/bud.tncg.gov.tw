@@ -48,7 +48,7 @@ foreach ($lines AS $line) {
         if (!isset($urls[$cols[5]])) {
             $p = pathinfo($cols[5]);
             $urls[$cols[5]] = sha1($cols[5]);
-            $cols[4] = $urls[$cols[5]] . '.' . $p['extension'];
+            $cols[4] = "{$cols[1]}_{$urls[$cols[5]]}.{$p['extension']}";
 
             $targetFile = $targetPath . '/' . $cols[4];
             if (!file_exists($targetFile) || filesize($targetFile) < 10) {
